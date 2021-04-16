@@ -10,7 +10,7 @@ Hello, i'm x0ld, french futur pentester, InfoSec enthusiast & CTF Player mainly 
 
 ## Writeups :
 
-<time datetime="2021-11-03T00:00:00+00:00">March 11, 2021</time> <a href="ctf/htb-breadcrumbs">HackTheBox-{Breadcrumbs}</a>
+<a href="ctf/htb-breadcrumbs">HackTheBox-{Breadcrumbs}</a>
 
 HTB-Time
 
