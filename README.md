@@ -16,8 +16,8 @@ HTB-Time
 
 ## 📝 How to contact me ? 
 
-On Twitter : @x0ld7
-On Discord : xold#8106
-On HTB : https://www.hackthebox.eu/profile/491690
+-On Twitter : @x0ld7
+-On Discord : xold#8106
+-On HTB : https://www.hackthebox.eu/profile/491690
 
 
