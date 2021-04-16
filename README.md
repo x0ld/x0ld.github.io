@@ -12,7 +12,7 @@ Hello, i'm x0ld, french futur pentester, InfoSec enthusiast & CTF Player mainly 
 
 ![r](https://cdn.discordapp.com/attachments/519930659620257797/832739076687134800/68747470733a2f2f692e696d6775722e636f6d2f344d37495777502e676966.gif)
 
-## Writeups :
+## 📝 Writeups :
 
 <a href="ctf/htb-breadcrumbs">HackTheBox-{Breadcrumbs}</a>
 
@@ -20,7 +20,7 @@ Hello, i'm x0ld, french futur pentester, InfoSec enthusiast & CTF Player mainly 
 
 ![r](https://cdn.discordapp.com/attachments/519930659620257797/832739076687134800/68747470733a2f2f692e696d6775722e636f6d2f344d37495777502e676966.gif)
 
-## 📝 How to contact me ? 
+## ☎️ How to contact me ? 
 
 On Twitter : @x0ld7
 
