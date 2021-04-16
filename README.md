@@ -14,9 +14,9 @@ Hello, i'm x0ld, french futur pentester, InfoSec enthusiast & CTF Player mainly 
 
 ## 📝 Writeups :
 
-<a href="ctf/htb-breadcrumbs">HackTheBox-{Breadcrumbs}</a>
+「💻」<a href="ctf/htb-breadcrumbs">HackTheBox-{Breadcrumbs}</a>
 
-<a href="ctf/htb-time">HackTheBox-{Time}</a>
+「💻」<a href="ctf/htb-time">HackTheBox-{Time}</a>
 
 ![r](https://cdn.discordapp.com/attachments/519930659620257797/832739076687134800/68747470733a2f2f692e696d6775722e636f6d2f344d37495777502e676966.gif)
 
