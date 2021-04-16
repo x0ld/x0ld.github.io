@@ -12,7 +12,7 @@ Hello, i'm x0ld, french futur pentester, InfoSec enthusiast & CTF Player mainly 
 
 <a href="ctf/htb-breadcrumbs">HackTheBox-{Breadcrumbs}</a>
 
-HTB-Time
+<a href="ctf/htb-time">HackTheBox-{Time}</a>
 
 ## 📝 How to contact me ? 
 
