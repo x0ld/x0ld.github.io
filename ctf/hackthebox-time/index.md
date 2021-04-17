@@ -4,13 +4,16 @@ description: Walkthrough of the Time Machine on Hackthebox.
 ---
 ![Time](https://media.discordapp.net/attachments/490431433559506954/832933487954231336/screenshot-193.png)
 
-## Scanning port
+## {0x1} Scanning port
 
-```
-Open port :
-
-22/tcp open ssh
-80/tcp open http
+```sh
+PORT STATE SERVICE VERSION 
+22/tcp open ssh  OpenSSH 8.2p1 Ubuntu 4ubuntu (Ubuntu Linux;
+protocol 2.0)
+80/tcp open http Apache httpd 2.4.41 ((Ubuntu))
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title: Online JSON parser
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 
 We can see that there is the ssh / 22 port and the 80 / http port which are open.
@@ -21,7 +24,7 @@ We see an online json beautifier & Validator with 2 options, "Beatify" & "Valida
 
 ![time](https://media.discordapp.net/attachments/490431433559506954/832936431823224862/unknown.png)
 
-## User FLag
+## {0x2} User FLag
 
 Now, you need to create a inject.sql files and add a reverse shell to have it call back to me. :
 
@@ -67,7 +70,7 @@ pericles@time:/home/pericles$ cat user.txt
 cat user.txt
 7u7243a41d508868b8c935c47b554ad7
 ```
-## Privilege Escalation
+## {0x3} Privilege Escalation
 
 Try to upload linpeas ( LinPEAS is a script that search for possible paths to escalate privileges on Linux )
 
@@ -110,6 +113,7 @@ Got the root flag
 root@time:~# cat /root/root.txt
 adsd9hf0c86b8786477033415e3018a4
 ```
-## Summary Of Knowledge : 
+## {0x4} Summary Of Knowledge : 
 
-- 
+- Java Deserialization
+- System Timer Exploitation
