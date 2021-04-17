@@ -20,11 +20,26 @@ We can see that there is the ssh / 22 port and the 80 / http port which are open
 
 We are going to see the http / 80 port to see what is interesting.
 
-We see an online json beautifier & Validator with 2 options, "Beatify" & "Validate!(Beta)".. I intercepted both options in burpsuite and i have just put a word in the field and submitted.
+We see an online json beautifier & Validator with 2 options, "Beatify" & "Validate!(Beta)".
 
-![time](https://media.discordapp.net/attachments/490431433559506954/832936431823224862/unknown.png)
+![A](https://media.discordapp.net/attachments/490431433559506954/832936431823224862/unknown.png)
 
-## {0x2} User FLag
+I intercepted both options in burpsuite and i have just input sample JSON datain the input field, select Beautify option and click on the PROCESS button. We can see this working. 
+Now try the same on "Validate! (Beta)" options : 
+
+![a](https://media.discordapp.net/attachments/490431433559506954/832954307493756969/unknown.png)
+
+You got an error ! 
+```
+Validation failed: Unhandled Java exception:com.fasterxml.jackson.databind.exc.MismatchedInputException: Unexpected token(START_OBJECT), expected START_ARRAY: need JSON Array to containAs.WRAPPER_ARRAY type information for class java.lang.Object
+```
+
+
+## {0x2} Foothold
+
+I pasted the error message: ```Unexpected token(START_OBJECT), expected START_ARRAY: need JSON Array to containAs.WRAPPER_ARRAY type information for class java.lang.Object``` on google, I came across an article from stackoverflow. article : https://stackoverflow.com/questions/26251486/jackson-polymorphic-deserialization-expected-start-array 
+
+The error is related to Jackson Polymorphic Deserialization expected START_ARRAY.
 
 Now, you need to create a inject.sql files and add a reverse shell to have it call back to me. :
 
