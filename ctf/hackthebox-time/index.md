@@ -12,3 +12,15 @@ Open port :
 22/tcp open ssh
 80/tcp open http
 ```
+
+We can see that there is the ssh / 22 port and the 80 / http port which are open.
+
+We are going to see the http / 80 port to see what is interesting.
+
+We see an online json beautifier & Validator with 2 options, "Beatify" & "Validate!(Beta)".. I intercepted both options in burpsuite and i have just put a word in the field and submitted.
+
+![time](https://media.discordapp.net/attachments/490431433559506954/832936431823224862/unknown.png)
+
+
+
+
