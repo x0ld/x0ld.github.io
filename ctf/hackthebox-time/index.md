@@ -69,7 +69,7 @@ and you got a reverseshell running as the user pericles.
 
 ```sh
 listening on [any] 1337 ...
-connect to [10.10.14.64] from (UNKNOWN) [10.10.10.214] 42212
+connect to [10.10.14.90] from (UNKNOWN) [10.10.10.214] 42212
 ```
 
 Now for a good stable shell, type :
