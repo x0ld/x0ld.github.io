@@ -16,9 +16,9 @@ protocol 2.0)
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 
-We can see that there is the ssh / 22 port and the 80 / http port which are open.
+We can see that there is the ssh/22 port and the 80 / http port which are open.
 
-We are going to see the http / 80 port to see what is interesting.
+We are going to see the http/80 port to see what is interesting.
 
 We see an online json beautifier & Validator with 2 options, "Beatify" & "Validate!(Beta)".
 
@@ -37,7 +37,7 @@ Validation failed: Unhandled Java exception:com.fasterxml.jackson.databind.exc.M
 
 ## {0x2} Foothold
 
-I pasted the error message: ```Unexpected token(START_OBJECT), expected START_ARRAY: need JSON Array to containAs.WRAPPER_ARRAY type information for class java.lang.Object``` on google, I came across an article from stackoverflow. article : https://stackoverflow.com/questions/26251486/jackson-polymorphic-deserialization-expected-start-array 
+I pasted the error message: ```Unexpected token(START_OBJECT), expected START_ARRAY: need JSON Array to containAs.WRAPPER_ARRAY type information for class java.lang.Object``` on google, I came across an article from stackoverflow.  <a href="https://stackoverflow.com/questions/26251486/jackson-polymorphic-deserialization-expected-start-array">here article</a>
 
 The error is related to Jackson Polymorphic Deserialization expected START_ARRAY.
 
