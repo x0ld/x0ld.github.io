@@ -6,7 +6,7 @@ description: Walkthrough of the Time Machine on Hackthebox.
 
 ![r](https://cdn.discordapp.com/attachments/519930659620257797/832739076687134800/68747470733a2f2f692e696d6775722e636f6d2f344d37495777502e676966.gif)
 
-## 0x1 Scanning port
+## 0x1 - Scanning port
 
 ```sh
 PORT STATE SERVICE VERSION 
@@ -37,7 +37,7 @@ Validation failed: Unhandled Java exception:com.fasterxml.jackson.databind.exc.M
 ```
 
 
-## 0x2 Foothold
+## 0x2 - Foothold
 
 I pasted the error message: ```Unexpected token(START_OBJECT), expected START_ARRAY: need JSON Array to containAs.WRAPPER_ARRAY type information for class java.lang.Object``` on google, I came across an article from stackoverflow.  <a href="https://stackoverflow.com/questions/26251486/jackson-polymorphic-deserialization-expected-start-array">here article</a>
 
@@ -87,7 +87,7 @@ pericles@time:/home/pericles$ cat user.txt
 cat user.txt
 7u7243a41d508868b8c935c47b554ad7
 ```
-## 0x3 Privilege Escalation
+## 0x3 - Privilege Escalation
 
 Try to upload linpeas ( LinPEAS is a script that search for possible paths to escalate privileges on Linux )
 
@@ -130,12 +130,12 @@ Got the root flag
 root@time:~# cat /root/root.txt
 adsd9hf0c86b8786477033415e3018a4
 ```
-## 0x4 Summary Of Knowledge : 
+##  Summary Of Knowledge : 
 
 - Java Deserialization
 - System Timer Exploitation
 
-## 0x5 About me :
+## About me :
 
 - Post author : x0ld
 - Github : https://github.com/x0ld
