@@ -26,6 +26,9 @@ On peut apercevoir qu'il y a le port ssh/22 et le port 80/http qui sont ouverts.
 Nous allons jeter un coup d'œil au port http/80 pour voir ce qu'il y'a d'intéressant.
 
 
+## 0x2 - Foothold
+
+
 Nous voyons un embellisseur et un validateur json en ligne avec 2 options, "Beatify" et "Validate! (Beta)".
 
 ![A](https://media.discordapp.net/attachments/490431433559506954/832936431823224862/unknown.png)
@@ -44,7 +47,6 @@ Validation failed: Unhandled Java exception:com.fasterxml.jackson.databind.exc.M
 ```
 
 
-## 0x2 - User 
 
 J'ai collé le message d'erreur dans la barre de recherche google : ```Unexpected token(START_OBJECT), expected START_ARRAY: need JSON Array to containAs.WRAPPER_ARRAY type information for class java.lang.Object``` Je suis tombé sur un article de stackoverflow, expliquant l'erreur en question.
 <a href="https://stackoverflow.com/questions/26251486/jackson-polymorphic-deserialization-expected-start-array">here article</a>
