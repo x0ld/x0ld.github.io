@@ -29,10 +29,10 @@ On peut apercevoir qu'il y a les ports suivants qui sont ouverts :
 Système d'exploitation Linux.
 ```
 
-Nous allons jeter un coup d'œil au port http/80 pour voir ce qu'il y'a d'intéressant.
+Nous allons jeter un coup d'œil au port ``http/80`` pour voir ce qu'il y'a d'intéressant.
 
 
-## 0x2 - Enumération web
+## 0x2 - ``Enumération web``
 
 
 Nous voyons un embellisseur et un validateur json en ligne avec 2 options, ``"Beatify"`` et ``"Validate! (Beta)"``.
