@@ -32,7 +32,7 @@ Système d'exploitation Linux.
 Nous allons jeter un coup d'œil au port http/80 pour voir ce qu'il y'a d'intéressant.
 
 
-## 0x2 - Foothold
+## 0x2 - Enumération web
 
 
 Nous voyons un embellisseur et un validateur json en ligne avec 2 options, "Beatify" et "Validate! (Beta)".
@@ -66,6 +66,10 @@ J'ai collé le message d'erreur dans la barre de recherche google : ```Unexpecte
 
 
 Après l'avoir lu, j'ai compris que l'erreur est liée à Jackson Polymorphic Deserialization expected START_ARRAY.
+
+
+## 0x3 - Foothold
+
 
 Maintenant, vous devez créer un fichier inject.sql et ajouter un reverse shell en bash pour qu'il me rappelle. :
 
