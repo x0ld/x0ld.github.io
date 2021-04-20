@@ -37,6 +37,7 @@ J'ai intercepté les deux options dans burpsuite et je viens de saisir un échan
 
 Maintenant, essayez la même chose sur ``"Validate! (Beta)"`` options : 
 
+
 ![a](https://media.discordapp.net/attachments/490431433559506954/832954307493756969/unknown.png)
 
 
@@ -54,7 +55,7 @@ J'ai collé le message d'erreur dans la barre de recherche google : ```Unexpecte
 
 
 
-![ak](https://media.discordapp.net/attachments/490431433559506954/834005307663187998/unknown.png)
+![ak](https://media.discordapp.net/attachments/490431433559506954/834008824389959690/unknown.png)
 
 
 
