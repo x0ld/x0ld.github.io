@@ -41,7 +41,8 @@ Nous voyons un embellisseur et un validateur json en ligne avec 2 options, ``"Be
 ![A](https://media.discordapp.net/attachments/490431433559506954/832936431823224862/unknown.png)
 
 
-J'ai intercepté les deux options dans burpsuite et je viens de saisir un échantillon de données ``JSON`` dans le champ de saisie, sélectionnez l'option ``Beautify`` et cliquez sur le bouton ``PROCESS`` . Nous pouvons voir que cela fonctionne. 
+J'ai intercepté les deux options via ``burpsuite`` et je viens de saisir un échantillon de données ``JSON`` dans le champ de saisie, sélectionnez l'option ``Beautify`` et cliquez sur le bouton ``PROCESS`` . Nous pouvons voir que cela fonctionne. 
+
 
 Maintenant, essayez la même chose sur ``"Validate! (Beta)"`` options : 
 
