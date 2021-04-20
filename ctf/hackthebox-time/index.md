@@ -38,7 +38,7 @@ J'ai intercepté les deux options dans burpsuite et je viens de saisir un échan
 Maintenant, essayez la même chose sur ``"Validate! (Beta)"`` options : 
 
 
-![a](https://media.discordapp.net/attachments/490431433559506954/832954307493756969/unknown.png)
+![a](https://media.discordapp.net/attachments/490431433559506954/834012057694371850/unknown.png)
 
 
 Vous avez une erreur!
