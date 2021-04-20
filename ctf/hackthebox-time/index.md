@@ -35,9 +35,11 @@ Nous allons jeter un coup d'œil au port http/80 pour voir ce qu'il y'a d'intér
 ## 0x2 - Enumération web
 
 
-Nous voyons un embellisseur et un validateur json en ligne avec 2 options, "Beatify" et "Validate! (Beta)".
+Nous voyons un embellisseur et un validateur json en ligne avec 2 options, ``"Beatify"`` et ``"Validate! (Beta)"``.
+
 
 ![A](https://media.discordapp.net/attachments/490431433559506954/832936431823224862/unknown.png)
+
 
 J'ai intercepté les deux options dans burpsuite et je viens de saisir un échantillon de données ``JSON`` dans le champ de saisie, sélectionnez l'option ``Beautify`` et cliquez sur le bouton ``PROCESS`` . Nous pouvons voir que cela fonctionne. 
 
