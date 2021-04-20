@@ -3,7 +3,7 @@ title: " HackTheBox - [Time] "
 description: Simple writeup of the Time box on Hackthebox.
 ---
 
-                               ![Time](https://media.discordapp.net/attachments/490431433559506954/832933487954231336/screenshot-193.png)
+   ![Time](https://media.discordapp.net/attachments/490431433559506954/832933487954231336/screenshot-193.png)
 
 
 ![r](https://cdn.discordapp.com/attachments/519930659620257797/832739076687134800/68747470733a2f2f692e696d6775722e636f6d2f344d37495777502e676966.gif)
