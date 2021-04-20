@@ -21,7 +21,13 @@ protocol 2.0)
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 
-On peut apercevoir qu'il y a le port ssh/22 et le port 80/http qui sont ouverts.
+On peut apercevoir qu'il y a les ports suivants qui sont ouverts :
+
+```sh
+80/http
+22/ssh
+Système d'exploitation ``Linux``
+```
 
 Nous allons jeter un coup d'œil au port http/80 pour voir ce qu'il y'a d'intéressant.
 
