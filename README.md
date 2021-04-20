@@ -23,10 +23,9 @@ Hello, i'm x0ld, french futur pentester, InfoSec enthusiast & CTF Player mainly 
 
 ## ☎️ How to contact me ? 
 
-On Twitter : @x0ld7
 
-On Discord : xold#8106
-
-On HTB : https://www.hackthebox.eu/profile/491690
+- Twitter : @x0ld7
+- Discord : xold#8106
+- HTB : [https://www.hackthebox.eu/home/users/profile/491690](https://www.hackthebox.eu/home/users/profile/491690)
 
 
