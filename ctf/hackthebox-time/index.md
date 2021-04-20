@@ -70,6 +70,10 @@ J'ai collé le message d'erreur dans la barre de recherche google : ```Unexpecte
 
 Après l'avoir lu, j'ai compris que l'erreur est liée à ``Jackson Polymorphic Deserialization expected START_ARRAY``.
 
+On a la possibilité d'exécuter des scripts SQL sur la base de données H2.
+
+Ceci est expliqué sur l'article ci-dessous
+[article](https://mthbernardes.github.io/rce/2018/03/14/abusing-h2-database-alias.html)
 
 ## 0x3 - Foothold
 
