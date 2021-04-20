@@ -51,6 +51,10 @@ Validation failed: Unhandled Java exception:com.fasterxml.jackson.databind.exc.M
 J'ai collé le message d'erreur dans la barre de recherche google : ```Unexpected token(START_OBJECT), expected START_ARRAY: need JSON Array to containAs.WRAPPER_ARRAY type information for class java.lang.Object``` Je suis tombé sur un article de stackoverflow, expliquant l'erreur en question.
 <a href="https://stackoverflow.com/questions/26251486/jackson-polymorphic-deserialization-expected-start-array">here article</a>
 
+
+![ak](https://media.discordapp.net/attachments/490431433559506954/834005307663187998/unknown.png)
+
+
 Après l'avoir lu, j'ai compris que l'erreur est liée à Jackson Polymorphic Deserialization expected START_ARRAY.
 
 Maintenant, vous devez créer un fichier inject.sql et ajouter un reverse shell en bash pour qu'il me rappelle. :
