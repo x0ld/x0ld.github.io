@@ -72,9 +72,7 @@ Après l'avoir lu, j'ai compris que l'erreur est liée à ``Jackson Polymorphic 
 
 On a la possibilité d'exécuter des scripts ``SQL`` sur la database H2.
 
-Ceci est expliqué sur l'article ci-dessous
-
-[article](https://mthbernardes.github.io/rce/2018/03/14/abusing-h2-database-alias.html)
+Ceci est expliqué sur l'article : [article](https://mthbernardes.github.io/rce/2018/03/14/abusing-h2-database-alias.html)
 
 ## 0x3 - Foothold
 
