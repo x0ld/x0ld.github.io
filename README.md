@@ -31,7 +31,7 @@ I'm x0ld, french, InfoSec enthusiast & CTF Player mainly on HackTheBox.
 
 
 - Twitter : @x0ld7
-- Discord : xold#8106
+- Discord : x0ld#8106
 - HTB : [https://www.hackthebox.eu/home/users/profile/491690](https://www.hackthebox.eu/home/users/profile/491690)
 
 
