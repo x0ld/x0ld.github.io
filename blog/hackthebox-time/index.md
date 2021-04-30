@@ -135,7 +135,7 @@ cat user.txt
 ```
 
 
-## 0x3 - Privilege Escalation
+## 0x4 - Privilege Escalation
 
 
 Maintenant nous allons upload ``Linpeas`` ( LinPEAS est un script qui recherche des chemins possibles pour augmenter les privilèges sous Linux ).
