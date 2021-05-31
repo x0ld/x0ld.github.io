@@ -13,7 +13,7 @@ Here you will find my writeups on HTB boxes & other items.
 ## Whoami ? 
 
 
-I'm x0ld, french, InfoSec enthusiast & CTF Player mainly on HackTheBox.
+I'm x0ld, french InfoSec enthusiast & CTF Player mainly on HackTheBox.
 
 
 ![r](https://cdn.discordapp.com/attachments/519930659620257797/832739076687134800/68747470733a2f2f692e696d6775722e636f6d2f344d37495777502e676966.gif)
@@ -33,7 +33,7 @@ I'm x0ld, french, InfoSec enthusiast & CTF Player mainly on HackTheBox.
 
 
 - Twitter : @x0ld7
-- Discord : x0ld#8106
+- Discord : x0ld#7777
 - HTB : [https://app.hackthebox.eu/profile/491690](https://app.hackthebox.eu/profile/491690)
 
 
